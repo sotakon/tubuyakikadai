@@ -1,0 +1,6 @@
+<h3>以下の内容で、tweetする。</h3>
+<%= form_with(model: @tubuyaki, local: true) do |form| %>
+  <%= form.hidden_field :content %>
+  <p>本文:<%= @tubuyaki.content %></p>
+  <%= form.submit  "tweet" %>
+<% end %>

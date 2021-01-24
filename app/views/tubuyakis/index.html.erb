@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <%= stylesheet_link_tag "application", :media => "all" %>
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <%= image_tag "twitter.png", class: "logo_image"%>
+      <nav>
+        <ul class="top_menu clearfix">
+          <li><%= link_to 'ホーム', tubuyakis_path %></li>
+          <li><%= link_to 'tweetを投稿する', new_tubuyaki_path %></li>
+        </ul>
+      </nav>
+    </header>
+    <%= image_tag "twitter2.png", class: "image_area"%>
+    <div class="wrapper clearfix">
+      <article class="content">
+        <p><%= notice %></p>
+        <h2>tweet一覧</h2>
+        <div class="news">
+          <table>
+            <% @tubuyaki.each do |tubuyaki| %>
+              <tr>
+                <th><%= tubuyaki.content %></th>
+                <td><%= link_to "tweetを編集する", edit_tubuyaki_path(tubuyaki.id) %></td>
+                <td><%= link_to 'tweetを削除する', tubuyaki_path(tubuyaki.id), method: :delete %></td>
+              </tr>
+            <% end %>
+          </table>
+        </div>
+      </article>
+    </div>
+    <footer class="footer">
+      <p>Copyright © 2018 DIVE INC All RIGHTS RESERVED.</p>
+    </footer>
+  </div>
+</body>
+</html>

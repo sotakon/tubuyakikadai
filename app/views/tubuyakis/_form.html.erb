@@ -1,0 +1,18 @@
+<%= form_with(model: @tubuyaki, local: true ,url: confirm_tubuyakis_path ) do |form| %>
+<% if @tubuyaki.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= @tubuyaki.errors.count %>件のエラーがあります。</h2>
+    <ul>
+    <% @tubuyaki.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+  <div class="tubuyaki_content">
+    <%= form.label :tweet内容 %>
+    <%= form.text_field :content %>
+  </div>
+  <%= form.submit :tweet %>
+<% end %>
+  <%= link_to 'tweet一覧に戻る', tubuyakis_path %>
